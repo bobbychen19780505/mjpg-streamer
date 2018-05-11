@@ -1,3 +1,11 @@
+Update
+======
+2018-05-11: Add mjpg-streamer.sh and play_videofile.sh, ffmpeg is required.
+	usage:
+		mjpg-streamer.sh [start|stop|restart|status]
+		play_videofile.sh [video file]
+
+
 mjpg-streamer
 =============
 
