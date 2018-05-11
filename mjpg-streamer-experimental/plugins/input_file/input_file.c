@@ -227,7 +227,7 @@ void help(void)
     " Help for input plugin..: "INPUT_PLUGIN_NAME"\n" \
     " ---------------------------------------------------------------\n" \
     " The following parameters can be passed to this plugin:\n\n" \
-    " [-d | --delay ]........: delay (in seconds) to pause between frames\n" \
+    " [-d | --delay ]........: delay (in mseconds) to pause between frames\n" \
     " [-f | --folder ].......: folder to watch for new JPEG files\n" \
     " [-r | --remove ].......: remove/delete JPEG file after reading\n" \
     " [-n | --name ].........: ignore changes unless filename matches\n" \
@@ -316,7 +316,8 @@ void *worker_thread(void *arg)
         rc = file = open(buffer, O_RDONLY);
         if(rc == -1) {
             perror("could not open file for reading");
-            break;
+            //break;
+            continue;
         }
 
         /* approximate size of file */
@@ -369,7 +370,7 @@ void *worker_thread(void *arg)
         }
 
         if(delay != 0)
-            usleep(1000 * 1000 * delay);
+            usleep(1000 * delay);
     }
 
 thread_quit:
